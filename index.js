@@ -105,9 +105,7 @@ function formatForDiscord(scheduleData) {
     ];
   }
 
-  const now = new Date(
-    new Date().toLocaleString("en-US", { timeZone: TIMEZONE })
-  );
+  const now = new Date();
 
   const todayDateOnly = now.toLocaleDateString("en-US", {
     year: "numeric",
