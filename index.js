@@ -74,6 +74,7 @@ async function fetchWithRetry(fn, retries = 3, delayMs = 1000) {
 async function fetchAnimeSchedule() {
   const { year, weekNumber } = getCurrentYearAndWeek();
   const url = `https://animeschedule.net/api/v3/timetables/sub?tz=${TIMEZONE}&year=${year}&week=${weekNumber}`;
+  console.info("[fetchAnimeSchedule] URL:", url);
 
   try {
     const response = await axios.get(url, {
@@ -88,7 +89,6 @@ async function fetchAnimeSchedule() {
       "[fetchAnimeSchedule] Error fetching anime airing schedule:",
       error.message
     );
-    console.error("[fetchAnimeSchedule] URL:", url);
     console.error("[fetchAnimeSchedule] Status:", error.response?.status);
     console.error("[fetchAnimeSchedule] Data:", error.response?.data);
 
